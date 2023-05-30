@@ -1,9 +1,12 @@
 import "./App.css";
+import ArticlesContainer from "./components/ArticlesContainer";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">NC News</h1>
+      <Nav />
+      <ArticlesContainer />
     </>
   );
 }
