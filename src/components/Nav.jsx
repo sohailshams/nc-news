@@ -5,7 +5,13 @@ const Nav = () => {
   return (
     <nav className="bg-white text-black py-3 w-screen sticky top-0 z-50 border-solid border-b border-black">
       <Header />
-      <NavLinks home={["Home", "Topics", "Signin"]} />
+      <NavLinks
+        navLinks={[
+          { urlName: "Home", path: "/" },
+          { urlName: "Topics", path: "/#" },
+          { urlName: "Signin", path: "/#" },
+        ]}
+      />
     </nav>
   );
 };

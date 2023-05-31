@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchArtilces } from "../api/api";
-import Article from "./Article";
+import Article from "./ArticleCard";
+import { Loader } from "./Loader";
 
 const ArticlesList = () => {
   const [articlesList, setArticlesList] = useState([]);
@@ -13,18 +15,21 @@ const ArticlesList = () => {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <div>
+          <Loader />
+        </div>
       ) : (
         articlesList.map(
           ({ article_id, article_img_url, title, author, created_at }) => {
             return (
-              <Article
-                key={article_id}
-                article_img_url={article_img_url}
-                title={title}
-                author={author}
-                created_at={created_at}
-              />
+              <Link key={article_id} to={`/articles/${article_id}`}>
+                <Article
+                  article_img_url={article_img_url}
+                  title={title}
+                  author={author}
+                  created_at={created_at}
+                />
+              </Link>
             );
           }
         )

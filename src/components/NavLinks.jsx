@@ -1,11 +1,15 @@
-const NavLinks = ({ home }) => {
+import { Link } from "react-router-dom";
+
+const NavLinks = ({ navLinks }) => {
   return (
     <section className="flex justify-evenly my-3">
-      {home.map((link, index) => {
+      {navLinks.map((obj, index) => {
+        const { urlName, path } = obj;
+
         return (
-          <a key={index} href="#">
-            {link}
-          </a>
+          <Link key={index} to={path}>
+            {urlName}
+          </Link>
         );
       })}
     </section>
