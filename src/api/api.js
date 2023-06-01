@@ -10,3 +10,10 @@ export function fetchArtilces() {
     .then((res) => res.data.articles)
     .catch((err) => console.log(err.message));
 }
+
+export function ArtilceDetailAndComments(articleId, comment = "") {
+  return ncNewsApi
+    .get(`/articles/${articleId}/${comment}`)
+    .then((res) => (comment ? res.data.comments : res.data.article))
+    .catch((err) => console.log(err.message));
+}
