@@ -21,8 +21,9 @@ const CommentsList = ({ article_id, votes }) => {
         <button onClick={commentClickHandler}>Comments</button>
       </div>
 
-      {isCommentClicked
-        ? commentsList.map(({ author, comment_id, body, votes }) => {
+      {isCommentClicked ? (
+        commentsList.length > 0 ? (
+          commentsList.map(({ author, comment_id, body, votes }) => {
             return (
               <section key={comment_id} className="bg-[#eef3f8] my-3 p-5">
                 <p className="font-bold">{author}:</p>
@@ -31,7 +32,14 @@ const CommentsList = ({ article_id, votes }) => {
               </section>
             );
           })
-        : ""}
+        ) : (
+          <p className="bg-[#eef3f8] p-3 mt-3">
+            No comments found related to this article!
+          </p>
+        )
+      ) : (
+        ""
+      )}
     </>
   );
 };
