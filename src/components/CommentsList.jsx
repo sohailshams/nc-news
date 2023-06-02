@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { ArtilceDetailAndComments } from "../api/api";
+import Votes from "./Votes";
 
 const CommentsList = ({ article_id, votes }) => {
   const [commentsList, setCommentsList] = useState([]);
   const [isCommentClicked, setIsCommentClicked] = useState(false);
+  const [isErr, setIsErr] = useState(false);
 
   const commentClickHandler = () => {
     setIsCommentClicked(true);
@@ -17,10 +19,15 @@ const CommentsList = ({ article_id, votes }) => {
   return (
     <>
       <div className="flex justify-between mt-3 font-bold">
-        <p>Votes {votes}</p>
-        <button onClick={commentClickHandler}>Comments</button>
+        <Votes votes={votes} article_id={article_id} setIsErr={setIsErr} />
+        <button
+          className="bg-[#eef3f8] py-2 px-3 rounded-md"
+          onClick={commentClickHandler}
+        >
+          Comments
+        </button>
       </div>
-
+      <p id="vote-error" value={isErr} className="p-2 mt-3"></p>
       {isCommentClicked ? (
         commentsList.length > 0 ? (
           commentsList.map(({ author, comment_id, body, votes }) => {
