@@ -17,3 +17,9 @@ export function ArtilceDetailAndComments(articleId, comment = "") {
     .then((res) => (comment ? res.data.comments : res.data.article))
     .catch((err) => console.log(err.message));
 }
+
+export function ArtilceVoteIncDec(articleId, incVote) {
+  return ncNewsApi
+    .patch(`/articles/${articleId}`, incVote)
+    .then((res) => res.data.updatedArticle);
+}
