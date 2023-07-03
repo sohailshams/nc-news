@@ -23,3 +23,9 @@ export function ArtilceVoteIncDec(articleId, incVote) {
     .patch(`/articles/${articleId}`, incVote)
     .then((res) => res.data.updatedArticle);
 }
+
+export function AddComments(articleId, newComment) {
+  return ncNewsApi
+    .post(`/articles/${articleId}/comments`, newComment)
+    .then((res) => res.data.comment);
+}
