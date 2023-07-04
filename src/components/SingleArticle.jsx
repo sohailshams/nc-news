@@ -11,16 +11,18 @@ const SingleArticle = () => {
   const { article_id } = useParams();
 
   useEffect(() => {
-    ArtilceDetailAndComments(article_id).then((articleDetail) =>
-      setArticleDetail(articleDetail)
-    );
-    setIsLoading(false);
+    ArtilceDetailAndComments(article_id).then((articleDetail) => {
+      setArticleDetail(articleDetail);
+      setIsLoading(false);
+    });
   }, []);
 
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <div className="flex justify-center items-center h-[30em]">
+          <Loader />
+        </div>
       ) : (
         <section className="w-2/4 mx-auto my-5">
           <ArticleDetail articleDetail={articleDetail} />
