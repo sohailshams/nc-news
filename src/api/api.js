@@ -29,3 +29,11 @@ export function AddComments(articleId, newComment) {
     .post(`/articles/${articleId}/comments`, newComment)
     .then((res) => res.data.comment);
 }
+
+export function fetchUsers() {
+  return ncNewsApi
+    .get("/users")
+    .then((res) => res.data.users)
+    .catch((err) => console.log(err.message));
+}
+fetchUsers();

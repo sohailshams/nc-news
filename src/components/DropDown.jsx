@@ -9,7 +9,8 @@ function classNames(...classes) {
 }
 
 const DropDown = () => {
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -32,28 +33,33 @@ const DropDown = () => {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <Link to="/signin">
-                  <button
-                    onClick={() => setUser("tickle122")}
-                    className={classNames(
-                      active
-                        ? "bg-gray-100 text-gray-900 w-full text-left"
-                        : "text-gray-700",
-                      "block px-4 py-2 text-sm"
-                    )}
-                  >
-                    Sign In
-                  </button>
-                </Link>
-              )}
-            </Menu.Item>
-
+            {user === null ? (
+              <Menu.Item>
+                {({ active }) => (
+                  <Link to="/signin">
+                    <button
+                      className={classNames(
+                        active
+                          ? "bg-gray-100 text-gray-900 w-full text-left"
+                          : "text-gray-700",
+                        "block px-4 py-2 text-sm"
+                      )}
+                    >
+                      Sign In
+                    </button>
+                  </Link>
+                )}
+              </Menu.Item>
+            ) : (
+              ""
+            )}
             <Menu.Item>
               {({ active }) => (
                 <button
-                  onClick={() => setUser(null)}
+                  onClick={() => {
+                    localStorage.clear();
+                    setUser(null);
+                  }}
                   type="submit"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
