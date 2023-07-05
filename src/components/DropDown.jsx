@@ -10,15 +10,22 @@ function classNames(...classes) {
 
 const DropDown = () => {
   const { user, setUser } = useContext(UserContext);
-
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button>
-          <UserCircleIcon
-            className="-mr-1 h-10 w-10 text-gray-400"
-            aria-hidden="true"
-          />
+          {user === null ? (
+            <UserCircleIcon
+              className="-mr-1 h-10 w-10 text-gray-400"
+              aria-hidden="true"
+            />
+          ) : (
+            <img
+              className="h-10 w-10 rounded-full"
+              src={user.avatar_url}
+              alt=""
+            />
+          )}
         </Menu.Button>
       </div>
 

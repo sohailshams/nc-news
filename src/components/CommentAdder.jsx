@@ -20,7 +20,7 @@ const CommentAdder = ({ setCommentsList, article_id }) => {
       errorMessage.innerText = "Comment can not be an empty value!";
       errorMessage.classList.add("bg-red-200");
     } else {
-      const newCommentObj = { username: user, body: newComment };
+      const newCommentObj = { username: user.username, body: newComment };
       AddComments(article_id, newCommentObj)
         .then((comment) => {
           setCommentsList((currentCommentsList) => {
