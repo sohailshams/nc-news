@@ -9,6 +9,12 @@ const CommentAdder = ({ setCommentsList, article_id }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (user === null) {
+      const errorMessage = document.getElementById("comment-error");
+      errorMessage.innerText = "Please Sig In first to add a comment!";
+      errorMessage.classList.add("bg-red-200");
+      return false;
+    }
     if (newComment === " ") {
       const errorMessage = document.getElementById("comment-error");
       errorMessage.innerText = "Comment can not be an empty value!";
