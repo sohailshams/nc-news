@@ -22,7 +22,7 @@ const ArticlesList = () => {
         </div>
       ) : (
         <section className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 my-10 gap-4 mx-10">
-          {articlesList.map(
+          {articlesList?.map(
             ({ article_id, article_img_url, title, author, created_at }) => {
               return (
                 <Link key={article_id} to={`/articles/${article_id}`}>

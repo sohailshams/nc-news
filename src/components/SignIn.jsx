@@ -12,12 +12,12 @@ const SignIn = () => {
 
   return (
     <section className="grid max-[500px]:grid-cols-1 grid-cols-2 md:grid-cols-3 my-10 gap-4 mx-10">
-      {usersList.map((userObj) => {
+      {usersList?.map((userObj) => {
         return (
           <Link
             to={"/"}
             onClick={() => {
-              localStorage.setItem("userObj", userObj);
+              localStorage.setItem("userObj", JSON.stringify(userObj));
               setUser(userObj);
             }}
             key={userObj.username}
