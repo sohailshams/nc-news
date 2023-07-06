@@ -36,4 +36,3 @@ export function fetchUsers() {
     .then((res) => res.data.users)
     .catch((err) => console.log(err.message));
 }
-fetchUsers();

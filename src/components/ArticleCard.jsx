@@ -1,3 +1,5 @@
+import { formatDateTime } from "../utils/utils";
+
 const Article = ({ article_img_url, title, author, created_at }) => {
   return (
     <article>
@@ -10,8 +12,8 @@ const Article = ({ article_img_url, title, author, created_at }) => {
       <h3 className="font-semibold text-sm mt-2">{title}</h3>
 
       <section className="flex flex-col space-y-2">
-        <p className="mt-2">By: {author}</p>
-        <p>{created_at}</p>
+        <p className="mt-2 italic">By: {author}</p>
+        <p className="text-xs">{formatDateTime(created_at)}</p>
       </section>
     </article>
   );
