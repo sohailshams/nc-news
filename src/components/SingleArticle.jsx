@@ -24,7 +24,7 @@ const SingleArticle = () => {
           <Loader />
         </div>
       ) : (
-        <section className="w-2/4 mx-auto my-5">
+        <section className="max-[425px]:w-5/6 w-2/4 mx-auto my-5">
           <ArticleDetail articleDetail={articleDetail} />
           <CommentsContainer
             article_id={article_id}
