@@ -21,7 +21,7 @@ const ArticlesList = () => {
           <Loader />
         </div>
       ) : (
-        <section className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 my-10 gap-4 mx-10">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10 gap-4 mx-10">
           {articlesList?.map(
             ({ article_id, article_img_url, title, author, created_at }) => {
               return (
