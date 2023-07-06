@@ -6,3 +6,5 @@ node_modules
 !.vscode/extensions.json
 
 Notes.txt
+# Local Netlify folder
+.netlify
