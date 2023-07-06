@@ -11,7 +11,7 @@ const Nav = () => {
           <NavLinks
             navLinks={[
               { urlName: "Home", path: "/" },
-              { urlName: "Topics", path: "/#" },
+              // { urlName: "Topics", path: "/#" },
             ]}
           />
           <div className="pr-5">
