@@ -6,6 +6,7 @@ import SingleArticle from "./components/SingleArticle";
 import SignIn from "./components/SignIn";
 import { useContext } from "react";
 import { UserContext } from "./contexts/User";
+import Topics from "./components/Topics";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -21,6 +22,7 @@ function App() {
         />
 
         <Route path="/articles/:article_id" element={<SingleArticle />} />
+        <Route path="/topics" element={<Topics />} />
       </Routes>
     </>
   );
