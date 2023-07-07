@@ -4,9 +4,9 @@ const ncNewsApi = axios.create({
   baseURL: "https://nc-news-fnpf.onrender.com/api",
 });
 
-export function fetchArtilces() {
+export function fetchArtilces(topic) {
   return ncNewsApi
-    .get("/articles")
+    .get(`/articles?topic=${topic}`)
     .then((res) => res.data.articles)
     .catch((err) => console.log(err.message));
 }
@@ -36,3 +36,12 @@ export function fetchUsers() {
     .then((res) => res.data.users)
     .catch((err) => console.log(err.message));
 }
+
+export function fetchTopics() {
+  return ncNewsApi
+    .get("/topics")
+    .then((res) => res.data.topics)
+    .catch((err) => console.log(err.message));
+}
+
+fetchTopics();
