@@ -25,7 +25,7 @@ const Topics = () => {
           {topicsList?.map((topicObj) => {
             return (
               <Link
-                to={"/"}
+                to={`/?topic=${topicObj.slug}`}
                 key={topicObj.slug}
                 className="flex items-center border-2 border-black shadow-xl bg-white shadow-2xl h-[150px]"
               >
